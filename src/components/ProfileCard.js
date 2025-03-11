@@ -13,7 +13,7 @@ export default function ProfileCard() {
 
 
         <div>
-          <h2 className="text-2xl font-bold">I am David Oludoyin</h2>
+          <h2 className="text-2xl font-bold">I am Alamin sanusi </h2>
           <p className="text-gray-400">A Front-end developer</p>
           <p className="text-gray-400">Follow me on social media</p>
         </div>
