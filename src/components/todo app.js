@@ -47,39 +47,43 @@ const TodoApp = () => {
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-100 p-4">
       <div className="w-full max-w-md bg-white rounded-xl shadow-md p-6">
-        <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">🔥 Firebase Todo App</h2>
-        <form onSubmit={addTodo} className="flex gap-2 mb-4">
+        <h2 className="text-xl sm:text-2xl font-bold text-center text-gray-800 mb-6">
+          🔥 Firebase Todo App
+        </h2>
+        <form onSubmit={addTodo} className="flex flex-col sm:flex-row gap-2 mb-4">
           <input 
             type="text"
             value={task}
             onChange={(e) => setTask(e.target.value)}
             placeholder="Enter a task"
-            className="flex-grow px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full px-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
           />
-          <button 
-            type="submit"
-            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
-          >
-            Add
-          </button>
-          <button 
-            type="button"
-            onClick={deleteAllTodos}
-            className="px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
-          >
-            Delete All
-          </button>
+          <div className="flex gap-2 sm:flex-row flex-col">
+            <button 
+              type="submit"
+              className="w-full sm:w-auto px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition"
+            >
+              Add
+            </button>
+            <button 
+              type="button"
+              onClick={deleteAllTodos}
+              className="w-full sm:w-auto px-4 py-2 bg-red-500 text-white rounded-md hover:bg-red-600 transition"
+            >
+              Delete All
+            </button>
+          </div>
         </form>
         <ul className="space-y-2">
           {todos.map(todo => (
             <li 
               key={todo.id}
-              className="flex justify-between items-center bg-gray-50 px-4 py-2 rounded-md shadow-sm"
+              className="flex justify-between items-center bg-gray-50 px-4 py-2 rounded-md shadow-sm text-sm sm:text-base"
             >
-              <span>{todo.text}</span>
+              <span className="break-words max-w-[70%]">{todo.text}</span>
               <button 
                 onClick={() => deleteTodo(todo.id)} 
-                className="text-red-500 hover:text-red-700 font-medium"
+                className="text-red-500 hover:text-red-700 font-medium text-sm sm:text-base"
               >
                 Delete
               </button>
